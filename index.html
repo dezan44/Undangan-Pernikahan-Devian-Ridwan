@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Devian & Ridwan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:
+    radial-gradient(circle at top left, #f6d6da 0%, transparent 45%),
+    radial-gradient(circle at bottom right, #e6f0ea 0%, transparent 45%),
+    linear-gradient(180deg,#fff7f7,#f4ebe4);
+  color:#4b3a3a;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.hidden{display:none}
+
+/* Falling petals */
+.petal{
+  position:fixed;
+  top:-50px;
+  font-size:22px;
+  opacity:.7;
+  animation:fall linear infinite;
+  pointer-events:none;
+  z-index:1;
+}
+@keyframes fall{
+  0%{transform:translateY(-50px) rotate(0deg);opacity:0}
+  10%{opacity:.7}
+  100%{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+
+/* COVER */
+.cover{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.85)),
+    url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=80");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+  animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(1.05)}
+  to{opacity:1; transform:scale(1)}
+}
+
+.cover h1{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  color:#7a3b3b;
+}
+
+.cover-names{
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#7a3b3b;
+  margin:15px 0;
+}
+
+.cover button{
+  margin-top:25px;
+  padding:14px 40px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#b76e79,#d4a373);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(183,110,121,.4);
+}
+
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:70px 20px 120px;
+  position:relative;
+  z-index:2;
+}
+
+h2{
+  font-family:'Playfair Display',serif;
+  margin-top:60px;
+  color:#7a3b3b;
+  font-size:28px;
+}
+
+.card{
+  background:linear-gradient(180deg,#ffffff,#fff5f5);
+  border-radius:26px;
+  padding:30px 25px;
+  margin:30px 0;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+.map iframe{
+  width:100%;
+  height:250px;
+  border:0;
+  border-radius:20px;
+  margin-top:15px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 28px;
+  background:linear-gradient(135deg,#b76e79,#d4a373);
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+}
+
+/* DANA */
+.dana-box{
+  background:#ffffff;
+  border-radius:20px;
+  padding:25px;
+  border:2px solid #e3f2fd;
+}
+
+.copy-btn{
+  padding:10px 25px;
+  border:none;
+  border-radius:30px;
+  background:#108ee9;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* FORM */
+input, textarea, select{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:12px;
+  border:1px solid #ddd;
+}
+
+.comment{
+  background:#fff;
+  padding:15px;
+  border-radius:15px;
+  margin-top:10px;
+  text-align:left;
+  box-shadow:0 10px 20px rgba(0,0,0,.05);
+}
+
+a{color:#b76e79;text-decoration:none}
+
+audio{display:none}
+</style>
+</head>
+
+<body>
+
+<script>
+for(let i=0;i<15;i++){
+  let p=document.createElement("div");
+  p.className="petal";
+  p.innerText="🌸";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(10+Math.random()*10)+"s";
+  document.body.appendChild(p);
+}
+</script>
+
+<div class="cover" id="cover">
+  <h1>Undangan Pernikahan</h1>
+  <div class="cover-names">Devian & Ridwan</div>
+  <button onclick="openInvitation()">Buka Undangan</button>
+</div>
+
+<audio id="music" preload="auto" loop>
+  <source src="Lagu.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container hidden" id="main">
+
+<h2>بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيْمِ</h2>
+<div class="card">
+Maha suci Allah SWT yang telah menciptakan makhluk-Nya berpasangan-pasangan.
+</div>
+
+<h2>Calon Mempelai</h2>
+<div class="card">
+<b>Devian Citra</b><br>
+Putri dari Bapak Wana Supriatna & Ibu Dedeh Rostianah
+</div>
+
+<div class="card">
+<b>Ridwan Saparandi</b><br>
+Putra dari Bapak Mamar Miryana & Ibu Nining (Almh)
+</div>
+
+<h2>Akad Nikah</h2>
+<div class="card">
+<b>27 Maret 2026</b><br>
+08.00 WIB s/d selesai
+</div>
+
+<h2>Resepsi</h2>
+<div class="card">
+<b>28 Maret 2026</b><br>
+10.00 WIB s/d selesai
+</div>
+
+<h2>Alamat</h2>
+<div class="card map">
+Kp. Pasir Peuteuy RT.004/RW.002<br>
+Cisewu, Kec. Cisewu<br>
+Kab. Garut
+<iframe src="https://www.google.com/maps?q=Kp.+Pasir+Peuteuy+RT.004+RW.002+Cisewu+Garut&output=embed"></iframe>
+<a class="btn" target="_blank"
+href="https://www.google.com/maps/search/?api=1&query=Kp.+Pasir+Peuteuy+RT.004+RW.002+Cisewu+Garut">
+Buka Google Maps
+</a>
+</div>
+
+<h2>Doa Pernikahan</h2>
+<div class="card">
+Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu agar kamu merasa tenteram kepadanya.
+<br><br><b>QS. Ar-Rum : 21</b>
+</div>
+
+<h2>Amplop Digital</h2>
+<div class="card">
+  <div class="dana-box">
+    Transfer DANA ke nomor:<br><br>
+    <h3>085724984851</h3>
+    <button class="copy-btn" onclick="copyDana()">Copy Nomor</button>
+  </div>
+</div>
+
+<h2>Doa & Ucapan</h2>
+<div class="card">
+  <input type="text" id="nama" placeholder="Nama">
+  <textarea id="pesan" placeholder="Tulis Ucapan & Doa"></textarea>
+  <select id="hadir">
+    <option>Konfirmasi Kehadiran</option>
+    <option>Hadir</option>
+    <option>Tidak Hadir</option>
+  </select>
+  <button class="btn" onclick="kirimKomentar()">Kirim</button>
+  <div id="listKomentar"></div>
+</div>
+
+<div style="margin-top:60px;font-size:14px;">
+💌 Ingin buat undangan digital seperti ini?<br>
+<a href="https://wa.me/+6285863062537" target="_blank">
+Hubungi WhatsApp: wa.me/+6285863062537
+</a>
+</div>
+
+</div>
+
+<script>
+function openInvitation(){
+  document.getElementById("cover").style.display='none';
+  document.getElementById("main").classList.remove("hidden");
+  var music=document.getElementById("music");
+  music.volume=0.7;
+  music.play();
+}
+
+function copyDana(){
+  navigator.clipboard.writeText("085724984851");
+  alert("Nomor DANA disalin");
+}
+
+function kirimKomentar(){
+  var nama=document.getElementById("nama").value;
+  var pesan=document.getElementById("pesan").value;
+  var hadir=document.getElementById("hadir").value;
+
+  if(nama==""||pesan=="") return alert("Isi dulu ya");
+
+  var komentar={nama:nama,pesan:pesan,hadir:hadir};
+  var data=JSON.parse(localStorage.getItem("komentar"))||[];
+  data.push(komentar);
+  localStorage.setItem("komentar",JSON.stringify(data));
+  tampilKomentar();
+}
+
+function tampilKomentar(){
+  var list=document.getElementById("listKomentar");
+  list.innerHTML="";
+  var data=JSON.parse(localStorage.getItem("komentar"))||[];
+  data.reverse().forEach(function(k){
+    list.innerHTML+=`<div class="comment"><b>${k.nama}</b> (${k.hadir})<br>${k.pesan}</div>`;
+  });
+}
+
+tampilKomentar();
+</script>
+
+</body>
+</html>
